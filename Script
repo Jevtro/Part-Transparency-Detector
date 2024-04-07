@@ -1,0 +1,34 @@
+-- Invisible/1 Transparency Part Detector Code
+
+local part = game.Workspace.Part
+part.Transparency = 1 -- To change transparency for experimentation purposes.
+
+local function successResult() -- If it succeeded it will change the part color into green.
+	part.BrickColor = BrickColor.new("Lime green")
+	part.Transparency = 0
+end
+
+local function failedResult() -- If it failed it will change the part color into red.
+	part.BrickColor = BrickColor.new("Really red")
+end
+
+local function detector() -- The detector to check with boolean method if the transparency is 1 or not.
+	if part.Transparency == 1 then
+		return true
+	else
+		return false
+	end 
+end
+
+if detector() == true then -- If true then it will run successResult() function.
+	print("Processing..")
+	wait(5)
+	successResult()
+	print("Success, the part is indeed invisible or 1.")
+	
+else -- If false it will run failedResult() function.
+	print("Processing..")
+	wait(5)
+	failedResult()
+	print("Success, the part in indeed visible or less than 1.")
+end
